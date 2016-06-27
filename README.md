@@ -1,5 +1,5 @@
 # alpine-kibana
-Kibana docker image of smaller version.
+Kibana docker image of small size version.
 
 ## Base Image
 - alpine:3.4
