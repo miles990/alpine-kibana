@@ -15,8 +15,7 @@ RUN wget https://download.elastic.co/kibana/kibana/kibana-4.5.1-linux-x64.tar.gz
 	mv kibana-4.5.1-linux-x64 kibana
 
 # Create a kibana.yml and elasticsearch host set machine host address
-RUN	echo 'verify_ssl:false' > /kibana/config/kibana.yml
-	ELASTICSEARCH_HOST="$(ip route|awk '/default/ {print $3}'):9200"; echo 'elasticsearch.url:"http://'$ELASTICSEARCH_HOST'"' >> /kibana/config/kibana.yml
+RUN	ELASTICSEARCH_HOST="$(ip route|awk '/default/ {print $3}'):9200"; echo 'elasticsearch.url: "http://'$ELASTICSEARCH_HOST'"' > /kibana/config/kibana.yml
 
 RUN sed -i -e 's/\/node\/bin\/node/\/usr\/bin\/node/g' /kibana/bin/kibana
 
